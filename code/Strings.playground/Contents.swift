@@ -23,8 +23,8 @@ str.stringByAppendingPathExtension("txt")
 str.stringByDeletingLastPathComponent
 str.stringByDeletingPathExtension
 
-do {
-    try str.writeToFile("/tmp/foo.txt", atomically: true, encoding: NSUTF8StringEncoding)
-} catch var error {
-    print("Error writing! \(error)")
+var error : NSError? = nil
+str.writeToFile("/tmp/foo.txt", atomically: true, encoding: NSUTF8StringEncoding, error:&error)
+if let theError = error {
+    print("Error writing! \(theError)")
 }
