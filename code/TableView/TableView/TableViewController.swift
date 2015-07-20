@@ -10,7 +10,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
    
-    var data = ["Once", "upon", "a", "time"]
+    let data = ["Once", "upon", "a", "time"]
     
     
     

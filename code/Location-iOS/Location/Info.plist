@@ -8,6 +8,8 @@
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
 	<string>au.com.secretlab.$(PRODUCT_NAME:rfc1034identifier)</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>So we can demonstrate how to use CoreLocation</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
