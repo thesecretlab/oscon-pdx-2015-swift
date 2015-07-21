@@ -37,7 +37,7 @@ class ViewController: UIViewController {
             // Try to convert the data into an image
             if let image = UIImage(data: data!) {
                 
-                // Now that we have an image, assing it to the image view
+                // Now that we have an image, adding it to the image view
                 // but make sure that this is done on the main queue
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                     self.imageView.image = image
