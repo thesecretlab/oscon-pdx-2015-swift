@@ -508,7 +508,7 @@ myUInt = myUInt &- 1
 
 let debugMode = true
 
-func myAssert( predicate : @autoclosure () -> Bool) {
+/*func myAssert( predicate : @autoclosure () -> Bool) {
     
     if (debugMode == true) {
         if predicate() == false {
@@ -517,7 +517,127 @@ func myAssert( predicate : @autoclosure () -> Bool) {
     }
 }
 
-myAssert(1==1)
+myAssert(1==1) */
+
+let fileManager = NSFileManager.defaultManager()
+
+var documentsDirectory =
+    fileManager.URLsForDirectory(NSSearchPathDirectory.DocumentDirectory,
+    inDomains: NSSearchPathDomainMask.UserDomainMask).first as? NSURL
+
+println(documentsDirectory!)
+
+let fileContents = "I am the very model of a modern major general"
+
+if let destinationURL = documentsDirectory?.URLByAppendingPathComponent("penzance.txt") {
+    fileContents.writeToURL(destinationURL, atomically: true, encoding: NSUTF8StringEncoding, error: nil)
+}
+
+
+var str = "Hello, playground"
+
+str.componentsSeparatedByString(" ")
+
+str.uppercaseString
+str.lowercaseString
+
+str.hasPrefix("Hello")
+str.hasSuffix("playground")
+
+str.startIndex..<str.endIndex
+
+str.rangeOfString("playground")
+str.rangeOfString("pLaYgRoUnD", options: .CaseInsensitiveSearch)
+
+str = "/Users/jon"
+
+str.pathExtension
+str.pathComponents
+
+str.stringByAppendingPathComponent("Foo.txt")
+
+str = "This is a number: \(4+4)"
+
+class Car : Printable, DebugPrintable {
+    var numberOfWheels = 4
+    
+    var description : String {
+        return "A car with \(numberOfWheels) wheels"
+    }
+    
+    var debugDescription : String {
+        return "A more detailed description"
+    }
+    
+    
+}
+
+Car().description
+
+fileManager.description
+
+let numberFormatter = NSNumberFormatter()
+
+numberFormatter.numberStyle = .CurrencyStyle
+numberFormatter.stringFromNumber(23.42)
+
+numberFormatter.roundingIncrement = 0.5
+numberFormatter.stringFromNumber(23.42)
+
+numberFormatter.roundingIncrement = 0.0
+
+numberFormatter.numberStyle = .DecimalStyle
+numberFormatter.stringFromNumber(3678178923)
+
+
+let massFormatter = NSMassFormatter()
+
+massFormatter.stringFromKilograms(0.5)
+
+let lengthFormatter = NSLengthFormatter()
+
+lengthFormatter.stringFromMeters(100)
+
+let dataFormatter = NSByteCountFormatter()
+
+dataFormatter.countStyle = NSByteCountFormatterCountStyle.Binary
+dataFormatter.stringFromByteCount(200000)
+dataFormatter.stringFromByteCount(0)
+
+let dateFormatter = NSDateFormatter()
+
+dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+
+dateFormatter.stringFromDate(NSDate())
+
+
+dateFormatter.dateFormat = "yyyy.MM.dd"
+
+let march21st = dateFormatter.dateFromString("2015.03.21")
+
+let oneMonth = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitMonth, value: 1, toDate: march21st!, options: NSCalendarOptions.allZeros)
+
+let components = NSCalendar.currentCalendar().components(.CalendarUnitYear | .CalendarUnitMonth, fromDate: march21st!)
+
+components.year
+
+
+
+let source = [1, 2, 4, 8]
+
+let mapped
+    = source.map({ $0 * 2 })
+
+let reduced
+    = source.reduce(0, combine: +)
+
+let filtered
+    = source.filter({ $0 % 4 == 0 })
+
+let sorted
+    = source.sorted({ $0 > $1 })
+
 
 
 

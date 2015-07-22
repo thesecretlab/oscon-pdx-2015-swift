@@ -13,8 +13,16 @@ import LocalAuthentication
 class ViewController: UIViewController {
     
     let authenticationContext = LAContext()
+    
+    func myButtonTapped(sender : AnyObject) {
+        print("It was tapped!")
+    }
 
     @IBAction func authenticate(sender: AnyObject) {
+        
+        let myRuntimeButton = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+        
+        myRuntimeButton.addTarget(self, action: "myButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
         
         // Specify how we want to authenticate. (As of iOS 8.0, the only option
         // is with the Touch ID biometric fingerprint scanner.)
